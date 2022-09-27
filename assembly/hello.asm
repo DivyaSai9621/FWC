@@ -1,33 +1,30 @@
+.include "/sdcard/Download/aasith/assembly/m328Pdef.inc"
 
-
-
-.include "/home/divya/assembly/m328Pdef.inc"
-
-ldi r16,0b00100000  ;2 pin as output
+ldi r16,0b00100000  ;13 pin as output
 out DDRB,r16
 
 
 
 ldi r17, 0b11111000 ; identifying input pins 8,9,10
 	out DDRB,r17		; declaring pins as input
-ldi r17, 0b11111000;
+ldi r17, 0b11011111;
 	out PORTB,r17		; activating internal pullup for pins 8,9,10
 
 
-
+loopw:
+in r17,PINB
 ldi r18,0b00000001 ; value
-ldi r19,0b00000001 ; value
-ldi r20,0b00000001 ; value
+ldi r19,0b00000010 ; value
+ldi r20,0b00000100 ; value
 
 
 
 and r18,r17 ; r18=C
-lsr r17
 and r19,r17; r19=B
-lsr r17
+lsr r19 
 and r20,r17; r20=A
-lsr r17
-
+lsr r20
+lsr r20
 
 ldi r22,0b00000001;
 eor r22,r18;  r22=C'
@@ -58,13 +55,12 @@ and r3,r22   ;forAB'C'=r3
 
 or  r0,r3  ;for A'B'C+A' B C'+A B C+A B'C'=r16
 mov r16,r0
+ldi r25,0b00000101
+begin:
 lsl r16
-lsl r16
-lsl r16
-lsl r16
-lsl r16
-
-out PORTD,r16             ;F output
-
+dec r25
+brne begin
+out PORTB,r16             ;F output
+rcall loopw
 start:
 rjmp start
