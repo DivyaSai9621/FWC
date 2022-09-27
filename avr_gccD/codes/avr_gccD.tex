@@ -1,0 +1,68 @@
+\documentclass[10pt]{report}
+\usepackage{listings} 
+\usepackage{geometry}
+\usepackage{tabularx}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{hyperref}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+\usepackage{multicol}
+\usepackage {graphicx}
+\begin{document}
+\centering {\includegraphics[scale=0.05]{logo.png}} \vspace{3mm}\\ \raggedright Name: N.Divya Sai\hspace{12cm}\\
+\raggedleft Roll No.: FWC22094
+\\ \centering \Large \textbf{ASSIGNMENT-1}
+\\ \centering \small \textbf{Avr-gcc}
+\begin{multicols}{2} 
+\section{Question-2007  Q43}
+In the following circuit,X is given by
+\includegraphics[scale=0.40]{mux.png}
+\section{Contents}
+\raggedright
+\textbf{Components}\hspace{4.35cm} 3
+\\\textbf{Hardware}\hspace{4.78cm}   4
+\\\textbf{Solution}
+\hspace{4.95cm}   5\\
+\vspace{1cm}
+\textit{Abstract-}
+\textbf{This manual shows the output X,for the given input A,B,C}
+\section{Components}
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+Component & Value & Quantity\\
+\hline
+Arduino & UNO & 1\\
+\hline
+USB & & 1\\
+\hline
+\end{tabular}\\
+\section{Hardware}
+\raggedright Connect arduino pins 2,3,4 to bread board.Based on the truth tabel,check for each value.Observe the in-built led on the arduino board will turn ON or OFF \\
+\centering
+\section{Solution} 
+\centering
+\textbf{Expression:AB'C'+A'BC'+A'B'C+ABC}\\
+\textbf{Truth Table}\\
+\
+\\\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{A} & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1\\
+\hline
+\textbf{B} & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1\\
+\hline
+\textbf{C} & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1\\
+\hline
+\textbf{X} & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 1\\
+\hline
+\end{tabular}\\
+\vspace{1cm}
+\raggedright 1.Go to the working directory and execute and upload the code.\\
+2.Whenever you change the inputs you will see the respective output. \\
+\vspace{1cm}
+\end{multicols}
+\end{document}
